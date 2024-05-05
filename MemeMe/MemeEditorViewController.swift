@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController.swift
 //  MemeMe
 //
 //  Created by Vu Phong on 15/04/2024.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
+class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIBarButtonItem!
@@ -24,11 +24,16 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         setupTextFields(topTextField, text: "TOP")
         setupTextFields(bottomTextField, text: "BOTTOM")
+        shareButton.isEnabled = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        #if targetEnvironment(simulator)
+                cameraButton.isEnabled = false
+        #else
+                cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        #endif
         subscribeToKeyboardNotifications()
     }
     
@@ -78,6 +83,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             imagePickerView.contentMode = UIView.ContentMode.scaleAspectFit
             self.dismiss(animated: true)
         }
+        shareButton.isEnabled = true
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
@@ -88,12 +94,13 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         let memeTextAttributes: [NSAttributedString.Key: Any] = [
             NSAttributedString.Key.strokeColor: UIColor.black,
             NSAttributedString.Key.foregroundColor: UIColor.white,
-            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-CondensedBlack", size: 65)!,
             NSAttributedString.Key.strokeWidth: -3.0
         ]
         textField.text = text
         textField.defaultTextAttributes = memeTextAttributes
         textField.textAlignment = .center
+        textField.autocapitalizationType = .allCharacters
         textField.delegate = self
     }
     
@@ -112,7 +119,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @objc func keyboardWillShow(_ notification:Notification) {
         
         if bottomTextField.isFirstResponder {
-            view.frame.origin.y -= getKeyboardHeight(notification)
+            view.frame.origin.y = -getKeyboardHeight(notification)
         }
     }
     

@@ -8,16 +8,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="MemeEditorViewController" customModule="MemeMe" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="O5U-Ue-Y8F">
                                 <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </imageView>
                             <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VRq-9N-Sbt">
                                 <rect key="frame" x="0.0" y="769" width="393" height="49"/>
@@ -37,21 +39,25 @@
                                     <barButtonItem systemItem="flexibleSpace" id="jJ6-vh-V3T"/>
                                 </items>
                             </toolbar>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-oc-7P3">
-                                <rect key="frame" x="146.66666666666666" y="143" width="100" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="TOP" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GYj-oc-7P3">
+                                <rect key="frame" x="118.66666666666669" y="143" width="156" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="100" id="VZI-Wr-q0p"/>
-                                    <constraint firstAttribute="height" constant="40" id="Zyo-Po-Ppx"/>
+                                    <constraint firstAttribute="width" constant="156" id="VZI-Wr-q0p"/>
+                                    <constraint firstAttribute="height" constant="80" id="Zyo-Po-Ppx"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SbD-sA-vcP">
-                                <rect key="frame" x="146.66666666666666" y="681" width="100" height="40"/>
+                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="BOTTOM" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SbD-sA-vcP">
+                                <rect key="frame" x="118.66666666666669" y="649" width="156" height="80"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="iOf-Jj-Qt0"/>
-                                    <constraint firstAttribute="width" constant="100" id="uSp-7t-Zmt"/>
+                                    <constraint firstAttribute="height" constant="80" id="iOf-Jj-Qt0"/>
+                                    <constraint firstAttribute="width" constant="156" id="uSp-7t-Zmt"/>
                                 </constraints>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -81,17 +87,18 @@
                             <constraint firstItem="VRq-9N-Sbt" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="GlI-Ot-evy"/>
                             <constraint firstItem="MNh-7s-mXd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Lm6-2d-2Io"/>
                             <constraint firstItem="GYj-oc-7P3" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="OAL-TD-GDc"/>
-                            <constraint firstItem="VRq-9N-Sbt" firstAttribute="top" secondItem="SbD-sA-vcP" secondAttribute="bottom" constant="48" id="ON2-gJ-TFT"/>
+                            <constraint firstItem="O5U-Ue-Y8F" firstAttribute="bottom" secondItem="SbD-sA-vcP" secondAttribute="bottom" constant="40" id="ON2-gJ-TFT"/>
                             <constraint firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SWF-aH-xJH"/>
                             <constraint firstItem="VRq-9N-Sbt" firstAttribute="top" secondItem="O5U-Ue-Y8F" secondAttribute="bottom" id="a7t-0N-cEe"/>
                             <constraint firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="bTI-WD-quv"/>
                             <constraint firstItem="VRq-9N-Sbt" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="c9n-rS-gAX"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="VRq-9N-Sbt" secondAttribute="trailing" id="cCW-HB-1Me"/>
-                            <constraint firstItem="GYj-oc-7P3" firstAttribute="top" secondItem="MNh-7s-mXd" secondAttribute="bottom" constant="40" id="puv-2D-bzD"/>
+                            <constraint firstItem="GYj-oc-7P3" firstAttribute="top" secondItem="O5U-Ue-Y8F" secondAttribute="top" constant="40" id="puv-2D-bzD"/>
                             <constraint firstItem="MNh-7s-mXd" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="rvi-AK-ji5"/>
                             <constraint firstItem="MNh-7s-mXd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="uz3-au-Htk"/>
                             <constraint firstItem="SbD-sA-vcP" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="xHO-us-AJJ"/>
                             <constraint firstItem="O5U-Ue-Y8F" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ylC-b7-1o9"/>
+                            <constraint firstItem="SbD-sA-vcP" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="z7j-8d-fNm"/>
                         </constraints>
                     </view>
                     <connections>
